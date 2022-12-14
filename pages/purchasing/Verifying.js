@@ -12,29 +12,37 @@ function Verifying({ onChangeStep }) {
         firstCharacter.current.focus();
     }, [])
     function firstCharacterHandler(e) {
-        e.target.select();
-        secondCharacter.current.focus();
-
+        if (e.target.value) {
+            e.target.select();
+            secondCharacter.current.focus();
+        }
     }
     function secondCharacterHandler(e) {
-        e.target.select();
-        thirdCharacter.current.focus();
-
+        if (e.target.value) {
+            e.target.select();
+            thirdCharacter.current.focus();
+        }
 
     }
     function thirdCharacterHandler(e) {
-        e.target.select();
-        forthCharacter.current.focus();
-
+        if (e.target.value) {
+            e.target.select();
+            forthCharacter.current.focus();
+        }
     }
     function forthCharacterHandler(e) {
-        e.target.select();
-        fifthCharacter.current.focus();
+        if (e.target.value) {
+            e.target.select();
+            fifthCharacter.current.focus();
+        }
 
     }
     function fifthCharacterHandler(e) {
-        e.target.select();
-        sixthCharacter.current.focus();
+        if (e.target.value) {
+            e.target.select();
+            sixthCharacter.current.focus();
+        }
+
 
     }
     function sixthCharacterHandler(e) {
@@ -42,54 +50,79 @@ function Verifying({ onChangeStep }) {
 
     }
 
-    function firstCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && e.target.value) {
+    function firstCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
             firstCharacter.current.value = "";
         }
-    }
-    function secondCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && !e.target.value) {
-            firstCharacter.current.focus();
-            firstCharacter.current.value = "";
-        }
-        else if (e.key === "Backspace" && e.target.value) {
-            secondCharacter.current.value = "";
-        }
-    }
-    function thirdCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && !e.target.value) {
+        if (e.keyCode == 39) {
             secondCharacter.current.focus();
-            secondCharacter.current.value = "";
-        }
-        else if (e.key === "Backspace" && e.target.value) {
-            thirdCharacter.current.value = "";
+            secondCharacter.current.select();
         }
     }
-    function forthCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && !e.target.value) {
+    function secondCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
+            firstCharacter.current.focus();
+            firstCharacter.current.select();
+        }
+        if (e.keyCode == 39) {
             thirdCharacter.current.focus();
-            thirdCharacter.current.value = "";
+            thirdCharacter.current.select();
         }
-        else if (e.key === "Backspace" && e.target.value) {
-            forthCharacter.current.value = "";
+        if (e.keyCode == 37) {
+            firstCharacter.current.focus();
+            firstCharacter.current.select();
         }
     }
-    function fifthCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && !e.target.value) {
+    function thirdCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
+            secondCharacter.current.focus();
+            secondCharacter.current.select();
+        }
+        if (e.keyCode == 39) {
             forthCharacter.current.focus();
-            forthCharacter.current.value = "";
+            forthCharacter.current.select();
         }
-        else if (e.key === "Backspace" && e.target.value) {
-            fifthCharacter.current.value = "";
+        if (e.keyCode == 37) {
+            secondCharacter.current.focus();
+            secondCharacter.current.select();
         }
     }
-    function sixthCharacterDeleteHandler(e) {
-        if (e.key === "Backspace" && !e.target.value) {
-            fifthCharacter.current.focus();
-            fifthCharacter.current.value = "";
+    function forthCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
+            thirdCharacter.current.focus();
+            thirdCharacter.current.select();
         }
-        else if (e.key === "Backspace" && e.target.value) {
-            sixthCharacter.current.value = "";
+        if (e.keyCode == 39) {
+            fifthCharacter.current.focus();
+            fifthCharacter.current.select();
+        }
+        if (e.keyCode == 37) {
+            thirdCharacter.current.focus();
+            thirdCharacter.current.select();
+        }
+    }
+    function fifthCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
+            forthCharacter.current.focus();
+            forthCharacter.current.select();
+        }
+        if (e.keyCode == 39) {
+            sixthCharacter.current.focus();
+            sixthCharacter.current.select();
+        }
+        if (e.keyCode == 37) {
+            forthCharacter.current.focus();
+            forthCharacter.current.select();
+        }
+    }
+    function sixthCharacterKeyStrokeHandler(e) {
+        if (e.key === "Backspace") {
+            fifthCharacter.current.focus();
+            fifthCharacter.current.select();
+        }
+        if (e.keyCode == 37) {
+            fifthCharacter.current.focus();
+            fifthCharacter.current.select();
         }
 
     }
@@ -111,12 +144,12 @@ function Verifying({ onChangeStep }) {
             <div className={styles["purchasing-processes__verifying-inputs"]}>
                 <label htmlFor="verifying" className={styles["purchasing-processes__label"]}>کد تایید را وارد کنید</label>
                 <div className={styles["purchasing-processes__verifying-inputs-container"]}>
-                    <input type="text" id="verifying" ref={sixthCharacter} onChange={sixthCharacterHandler} onKeyUp={sixthCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
-                    <input type="text" id="verifying" ref={fifthCharacter} onChange={fifthCharacterHandler} onKeyUp={fifthCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
-                    <input type="text" id="verifying" ref={forthCharacter} onChange={forthCharacterHandler} onKeyUp={forthCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
-                    <input type="text" id="verifying" ref={thirdCharacter} onChange={thirdCharacterHandler} onKeyUp={thirdCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
-                    <input type="text" id="verifying" ref={secondCharacter} onChange={secondCharacterHandler} onKeyUp={secondCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
-                    <input type="text" id="verifying" ref={firstCharacter} onChange={firstCharacterHandler} onKeyUp={firstCharacterDeleteHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={sixthCharacter} onInput={sixthCharacterHandler} onKeyUp={sixthCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={fifthCharacter} onInput={fifthCharacterHandler} onKeyUp={fifthCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={forthCharacter} onInput={forthCharacterHandler} onKeyUp={forthCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={thirdCharacter} onInput={thirdCharacterHandler} onKeyUp={thirdCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={secondCharacter} onInput={secondCharacterHandler} onKeyUp={secondCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
+                    <input type="number" id="verifying" ref={firstCharacter} onInput={firstCharacterHandler} onKeyUp={firstCharacterKeyStrokeHandler} onClick={selectHandler} className={styles["purchasing-processes__verifying-input"]} />
                 </div>
 
             </div>

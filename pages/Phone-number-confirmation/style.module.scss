@@ -1,0 +1,50 @@
+@import "../../styles/mixins";
+.purchasing-processes__verifying-inputs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 20px auto;
+}
+.purchasing-processes__verifying-input {
+  width: 16%;
+  height: 40px;
+  border-radius: 0px;
+  border: 1px solid #9a9a9a;
+  outline: none;
+  text-align: center;
+}
+.purchasing-processes__verifying-input::-webkit-outer-spin-button,
+.purchasing-processes__verifying-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.purchasing-processes__error {
+  outline: 2px solid #b70101 !important;
+}
+
+.purchasing-processes__verifying-input:focus {
+  border-color: #4f67ff;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.purchasing-processes__verifying-input:first-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.purchasing-processes__verifying-input:first-child:focus {
+  border: 2px solid #4f67ff;
+  border-left: 1px solid #4f67ff;
+}
+.purchasing-processes__verifying-input:last-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.purchasing-processes__verifying-input:last-child:focus {
+  border: 2px solid #4f67ff;
+  border-right: 1px solid #4f67ff;
+}
+.purchasing-processes__verifying-code {
+  font-size: 0.8em;
+  color: #9a9a9a;
+}

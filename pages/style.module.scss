@@ -1,4 +1,4 @@
-@import "../../styles/mixins";
+@import "../styles/mixins";
 .purchasing-processes__steps-counter {
   width: 75%;
   margin: auto;
@@ -105,7 +105,7 @@
   border-radius: 5px;
 }
 .purchasing-processes__error {
-  outline: 2px solid #b70101;
+  outline: 2px solid #b70101 !important;
 }
 .purchasing-processes__label {
   display: inline-block;

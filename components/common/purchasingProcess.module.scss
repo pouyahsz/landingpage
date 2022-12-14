@@ -1,0 +1,76 @@
+.purchasing-processes__steps-counter {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.purchasing-processes__steps-name {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.purchasing-processes--first-name-container {
+  width: 30%;
+}
+.purchasing-processes--second-name-container {
+  width: 40%;
+}
+.purchasing-processes--third-name-container {
+  width: 30%;
+}
+
+.purchasing-processes--first-step {
+  width: 30%;
+}
+.purchasing-processes--second-step {
+  width: 40%;
+  position: relative;
+}
+.purchasing-processes--second-step::before {
+  content: "";
+  display: inline-block;
+  width: 75%;
+  height: 1px;
+  background-color: #0000007d;
+  position: absolute;
+  left: 56%;
+  bottom: 10px;
+}
+.purchasing-processes--second-step::after {
+  content: "";
+  display: inline-block;
+  width: 75%;
+  height: 1px;
+  background-color: #0000007d;
+  position: absolute;
+  right: 56%;
+  bottom: 10px;
+}
+.purchasing-processes--third-step {
+  width: 30%;
+}
+
+.purchasing-processes__counter-container {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #9a9b9c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.purchasing-processes__counter-checked {
+  background-color: #5a22c1;
+}
+.purchasing-processes__counter {
+  color: white;
+  margin-top: 3px;
+}

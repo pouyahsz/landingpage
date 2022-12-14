@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import styles from './style.module.scss';
-function PurchasingSteps({ step }) {
+import styles from './purchasingProcess.module.scss';
+function PurchasingSteps({ step, children }) {
     return (
         <>
             <div className={styles["purchasing-processes__steps-counter"]}>
                 <div className={`${styles["purchasing-processes__step"]} ${styles["purchasing-processes--first-step"]}`}>
                     <div className={`${styles["purchasing-processes__counter-container"]} ${styles["purchasing-processes__counter-checked"]}`}>
-                        <span className={`${styles["purchasing-processes__counter"]}`}>{step === "verifying" || step === "authentication" ? 1 : <Image
+                        <span className={`${styles["purchasing-processes__counter"]}`}>{step === "Phone-number-confirmation" || step === "loging-info" ? 1 : <Image
                             src="/assets/images/check-solid.svg"
                             alt="check"
                             width={12}
@@ -15,8 +15,8 @@ function PurchasingSteps({ step }) {
                     </div>
                 </div>
                 <div className={`${styles["purchasing-processes__step"]} ${styles["purchasing-processes--second-step"]}`}>
-                    <div className={`${styles["purchasing-processes__counter-container"]} ${step === "completing informations" || step === "order info" ? styles["purchasing-processes__counter-checked"] : ""}`}>
-                        <span className={styles["purchasing-processes__counter"]}>{step === "order info" ? <Image
+                    <div className={`${styles["purchasing-processes__counter-container"]} ${step === "complete-info" || step === "order-receipt" ? styles["purchasing-processes__counter-checked"] : ""}`}>
+                        <span className={styles["purchasing-processes__counter"]}>{step === "order-receipt" ? <Image
                             src="/assets/images/check-solid.svg"
                             alt="check"
                             width={12}
@@ -25,7 +25,7 @@ function PurchasingSteps({ step }) {
                     </div>
                 </div>
                 <div className={`${styles["purchasing-processes__step"]} ${styles["purchasing-processes--third-step"]}`}>
-                    <div className={`${styles["purchasing-processes__counter-container"]} ${step === "order info" ? styles["purchasing-processes__counter-checked"] : ""}`}>
+                    <div className={`${styles["purchasing-processes__counter-container"]} ${step === "order-receipt" ? styles["purchasing-processes__counter-checked"] : ""}`}>
                         <span className={styles["purchasing-processes__counter"]}>3</span>
                     </div>
                 </div>
@@ -41,6 +41,7 @@ function PurchasingSteps({ step }) {
                     <span className={styles["purchasing-processes__name"]}>ثبت سفارش</span>
                 </div>
             </div>
+            {children}
         </>
     )
 }

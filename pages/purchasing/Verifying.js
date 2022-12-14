@@ -13,33 +13,33 @@ function Verifying({ onChangeStep }) {
     }, [])
     function firstCharacterHandler(e) {
         if (e.target.value) {
-            e.target.select();
+            secondCharacter.current.select();
             secondCharacter.current.focus();
         }
     }
     function secondCharacterHandler(e) {
         if (e.target.value) {
-            e.target.select();
+            thirdCharacter.current.select();
             thirdCharacter.current.focus();
         }
 
     }
     function thirdCharacterHandler(e) {
         if (e.target.value) {
-            e.target.select();
+            forthCharacter.current.select();
             forthCharacter.current.focus();
         }
     }
     function forthCharacterHandler(e) {
         if (e.target.value) {
-            e.target.select();
+            fifthCharacter.current.select();
             fifthCharacter.current.focus();
         }
 
     }
     function fifthCharacterHandler(e) {
         if (e.target.value) {
-            e.target.select();
+            sixthCharacter.current.select();
             sixthCharacter.current.focus();
         }
 
@@ -127,7 +127,10 @@ function Verifying({ onChangeStep }) {
 
     }
     function nextStepHandler() {
-        onChangeStep("completing informations")
+        if (firstCharacter.current.value && secondCharacter.current.value && thirdCharacter.current.value && forthCharacter.current.value && fifthCharacter.current.value && sixthCharacter.current.value) {
+            onChangeStep("completing informations");
+
+        }
     }
     function selectHandler(e) {
         e.target.select();

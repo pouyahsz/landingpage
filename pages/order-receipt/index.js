@@ -40,8 +40,10 @@ export default function OrderInfo() {
                         </div>
                     </div>
                 </div>
+                <div className={styles["button-container"]}>
+                    <Button text="ثبت سفارش" />
+                </div>
 
-                <Button text="ثبت سفارش" />
             </div>
         </PurchasingSteps>
     )

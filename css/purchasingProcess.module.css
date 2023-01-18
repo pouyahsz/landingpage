@@ -6,6 +6,7 @@
   justify-content: space-between;
   margin-top: 30px;
 }
+
 .purchasing-processes__steps-name {
   width: 75%;
   margin: auto;
@@ -19,9 +20,11 @@
 .purchasing-processes--first-name-container {
   width: 30%;
 }
+
 .purchasing-processes--second-name-container {
   width: 40%;
 }
+
 .purchasing-processes--third-name-container {
   width: 30%;
 }
@@ -29,10 +32,12 @@
 .purchasing-processes--first-step {
   width: 30%;
 }
+
 .purchasing-processes--second-step {
   width: 40%;
   position: relative;
 }
+
 .purchasing-processes--second-step::before {
   content: "";
   display: inline-block;
@@ -43,6 +48,7 @@
   left: 56%;
   bottom: 10px;
 }
+
 .purchasing-processes--second-step::after {
   content: "";
   display: inline-block;
@@ -53,6 +59,7 @@
   right: 56%;
   bottom: 10px;
 }
+
 .purchasing-processes--third-step {
   width: 30%;
 }
@@ -67,13 +74,16 @@
   align-items: center;
   margin: auto;
 }
+
 .purchasing-processes__counter-checked {
   background-color: #5a22c1;
 }
+
 .purchasing-processes__counter {
   color: white;
   margin-top: 3px;
 }
+
 @media screen and (max-width: 500px) {
   .purchasing-processes__steps-counter {
     width: 95%;
@@ -85,3 +95,4 @@
     font-size: 14px;
   }
 }
+/*# sourceMappingURL=purchasingProcess.module.css.map */

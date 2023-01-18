@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Button from '../../components/common/Button';
 import InputBox from '../../components/common/InputBox';
 import PurchasingSteps from '../../components/common/PurchasingSteps';
+import TextInput from '../../components/common/TextInput';
 import styles from '../style.module.scss';
 function CompletingInformations() {
     const [emailError, setEmailError] = useState(false);
@@ -22,22 +23,14 @@ function CompletingInformations() {
         }
 
     }
-    function looseEmailInputFocusHandler(e) {
-        setEmailError(false);
-    }
-    function looseNameInputFocusHandler(e) {
-        setNameError(false);
-    }
     return (
         <PurchasingSteps step={"complete-info"}>
             <InputBox>
                 <div className={styles["purchasing-processes__input-container"]}>
-                    <label htmlFor="name" className={styles["purchasing-processes__label"]}>نام و نام خانوادگی</label>
-                    <input type="text" id="name" onBlur={looseNameInputFocusHandler} onInput={looseNameInputFocusHandler} ref={nameInput} className={`${styles["purchasing-processes__input"]} ${nameError ? styles["purchasing-processes__error"] : ""}`} />
+                    <TextInput type="text" ref={nameInput} onLooseFocus={setNameError} errorStatus={nameError} id="name" labelText="نام و نام خانوادگی" />
                 </div>
                 <div className={styles["purchasing-processes__input-container"]}>
-                    <label htmlFor="email" className={styles["purchasing-processes__label"]}>ایمیل</label>
-                    <input type="text" id="email" onBlur={looseEmailInputFocusHandler} onInput={looseEmailInputFocusHandler} ref={emailInput} className={`${styles["purchasing-processes__input"]} ${emailError ? styles["purchasing-processes__error"] : ""}`} />
+                    <TextInput type="text" ref={emailInput} onLooseFocus={setEmailError} errorStatus={emailError} id="email" labelText="ایمیل" />
                 </div>
                 <Button text="ورود به فرانت هوکس" onClick={nextStepHandler} />
             </InputBox>

@@ -1,7 +1,6 @@
 .purchasing-processes__input-box {
   width: 35%;
-  max-width: 500px;
-  border: 1px solid rgb(162, 162, 162);
+  border: 1px solid #a2a2a2;
   border-radius: 15px;
   padding: 20px;
   margin: auto;
@@ -14,23 +13,28 @@
   color: #5a22c1;
   margin-bottom: 20px;
 }
+
 @media screen and (max-width: 900px) {
   .purchasing-processes__input-box {
     width: 42%;
   }
 }
+
 @media screen and (max-width: 750px) {
   .purchasing-processes__input-box {
     width: 50%;
   }
 }
+
 @media screen and (max-width: 500px) {
   .purchasing-processes__input-box {
     width: 70%;
   }
 }
+
 @media screen and (max-width: 400px) {
   .purchasing-processes__input-box {
     width: 80%;
   }
 }
+/*# sourceMappingURL=InputBox.module.css.map */

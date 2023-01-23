@@ -1,0 +1,84 @@
+@import "../../styles/mixins";
+.product-section__container {
+  padding: 0 80px;
+}
+.product-section__content {
+  @include flex(space-between, flex-start, row);
+}
+.product-section__header {
+  margin-bottom: 20px;
+  color: #5a22c1;
+}
+.product-section__image {
+  @include flex(flex-start, flex-start, row);
+}
+.product-section__image img {
+  width: 100%;
+  height: 100%;
+}
+.product-section__description {
+  width: 100%;
+  text-align: justify;
+}
+
+.product-section__info {
+  width: 68%;
+}
+.product-section__price-container {
+  width: 30%;
+  border-radius: 5px;
+  border: 1px solid #cfcfcfa8;
+  padding: 20px;
+}
+#pricing-items {
+  @include flex(space-between, center, row);
+  margin-bottom: 10px;
+}
+.product-section__price {
+  @extend #pricing-items;
+}
+.product-section__discount {
+  @extend #pricing-items;
+}
+.product-section__students {
+  @extend #pricing-items;
+}
+@media screen and (max-width: 950px) {
+  .product-section__container {
+    padding: 0 40px;
+  }
+  .product-section__info {
+    width: 60%;
+  }
+  .product-section__price-container {
+    width: 38%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .product-section__container span {
+    font-size: 0.8em;
+  }
+  .product-section__info {
+    width: 56%;
+  }
+  .product-section__price-container {
+    width: 42%;
+  }
+  .product-section__description {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 550px) {
+  .product-section__container {
+    padding: 0 20px;
+  }
+  .product-section__content {
+    @include flex(center, center, column);
+  }
+  .product-section__info {
+    width: 100%;
+  }
+  .product-section__price-container {
+    width: 100%;
+  }
+}

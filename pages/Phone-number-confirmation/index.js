@@ -4,6 +4,7 @@ import Button from '../../components/common/Button';
 import InputBox from '../../components/common/InputBox';
 import PurchasingSteps from '../../components/common/PurchasingSteps';
 import styles from './style.module.scss';
+import { useSelector } from 'react-redux';
 function Verifying() {
     const firstCharacter = useRef();
     const secondCharacter = useRef();
@@ -11,6 +12,7 @@ function Verifying() {
     const forthCharacter = useRef();
     const fifthCharacter = useRef();
     const sixthCharacter = useRef();
+    const user = useSelector(state => state.user.userInfo);
     const router = useRouter();
     const [error, setError] = useState(false);
     useEffect(() => {
@@ -145,26 +147,30 @@ function Verifying() {
 
     return (
         <PurchasingSteps step={"Phone-number-confirmation"}>
-            <InputBox>
-                <p className={styles["purchasing-processes__verifying-code"]}>کد تایید برای شماره موبایل <span>09915856088</span> ارسال شد
-                </p>
 
-                <div className={styles["purchasing-processes__verifying-inputs"]}>
-                    <label htmlFor="verifying" className={styles["purchasing-processes__label"]}>کد تایید را وارد کنید</label>
-                    <div className={styles["purchasing-processes__verifying-inputs-container"]}>
-                        <input type="number" id="verifying" ref={sixthCharacter} onInput={sixthCharacterHandler} onKeyUp={sixthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !sixthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                        <input type="number" id="verifying" ref={fifthCharacter} onInput={fifthCharacterHandler} onKeyUp={fifthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !fifthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                        <input type="number" id="verifying" ref={forthCharacter} onInput={forthCharacterHandler} onKeyUp={forthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !forthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                        <input type="number" id="verifying" ref={thirdCharacter} onInput={thirdCharacterHandler} onKeyUp={thirdCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !thirdCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                        <input type="number" id="verifying" ref={secondCharacter} onInput={secondCharacterHandler} onKeyUp={secondCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !secondCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                        <input type="number" id="verifying" ref={firstCharacter} onInput={firstCharacterHandler} onKeyUp={firstCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !firstCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+            <section className={styles["phone-number-section"]}>
+                <InputBox>
+                    <p className={styles["purchasing-processes__verifying-code"]}>کد تایید برای شماره موبایل <span>{user.phoneNumber}</span> ارسال شد
+                    </p>
+
+                    <div className={styles["purchasing-processes__verifying-inputs"]}>
+                        <label htmlFor="verifying" className={styles["purchasing-processes__label"]}>کد تایید را وارد کنید</label>
+                        <div className={styles["purchasing-processes__verifying-inputs-container"]}>
+                            <input type="number" id="verifying" ref={sixthCharacter} onInput={sixthCharacterHandler} onKeyUp={sixthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !sixthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            <input type="number" id="verifying" ref={fifthCharacter} onInput={fifthCharacterHandler} onKeyUp={fifthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !fifthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            <input type="number" id="verifying" ref={forthCharacter} onInput={forthCharacterHandler} onKeyUp={forthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !forthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            <input type="number" id="verifying" ref={thirdCharacter} onInput={thirdCharacterHandler} onKeyUp={thirdCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !thirdCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            <input type="number" id="verifying" ref={secondCharacter} onInput={secondCharacterHandler} onKeyUp={secondCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !secondCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            <input type="number" id="verifying" ref={firstCharacter} onInput={firstCharacterHandler} onKeyUp={firstCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !firstCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                        </div>
+
                     </div>
+                    <Button text="ورود به فرانت هوکس" onClick={nextStepHandler} />
+                </InputBox>
+            </section>
 
-                </div>
-                <Button text="ورود به فرانت هوکس" onClick={nextStepHandler} />
-            </InputBox>
 
-        </PurchasingSteps>
+        </PurchasingSteps >
     )
 }
 

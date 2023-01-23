@@ -6,6 +6,7 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
-.conplete-info-section {
+.extra-info-section {
+  height: 100vh;
   @include flex(center, center, row);
 }

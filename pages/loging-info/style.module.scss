@@ -6,6 +6,9 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+.loging-info-section {
+  @include flex(center, center, row);
+}
 
 @media screen and (max-width: 900px) {
 }

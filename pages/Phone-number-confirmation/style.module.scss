@@ -48,6 +48,9 @@
   font-size: 0.8em;
   color: #9a9a9a;
 }
+.phone-number-section {
+  @include flex(center, center, row);
+}
 @media screen and (max-width: 600px) {
   .purchasing-processes__verifying-code {
     font-size: 0.7em;

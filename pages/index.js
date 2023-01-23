@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function PurchasingProcess() {
   const router = useRouter();
   useEffect(() => {
-    router.replace("/loging-info")
+    router.replace("/product");
   })
   return (
     <></>

@@ -9,6 +9,7 @@ import { addUserPostalCode, addUserNationalCode } from '../../store/userSlice';
 
 
 const ExtraInfo = () => {
+    const nextProgressbarStatus = "dashbord";
     const nationalCodeRef = useRef();
     const postalCodeRef = useRef();
     const [nationalCodeError, setNationalCodeError] = useState(false);
@@ -17,10 +18,12 @@ const ExtraInfo = () => {
     const router = useRouter();
     function nextStepHandler() {
         if (nationalCodeRef.current.value && postalCodeRef.current.value) {
-            router.replace("./dashbord");
+            router.push(`/${nextProgressbarStatus}`);
             dispatch(addUserNationalCode(nationalCodeRef.current.value));
             dispatch(addUserPostalCode(postalCodeRef.current.value));
-
+            localStorage.setItem("phone-number", nationalCodeRef.current.value.toString());
+            localStorage.setItem("phone-number", postalCodeRef.current.value.toString());
+            //posting information
         }
         if (nationalCodeRef.current.value.trim() === "" && postalCodeRef.current.value.trim() === "") {
             setNationalCodeError(true);
@@ -51,6 +54,23 @@ const ExtraInfo = () => {
         </section>
 
     )
+}
+
+export async function getServerSideProps(context) {
+    const cookies = context.req.headers.cookie;
+    const step = cookies.slice(5);
+    if (step !== "extra-info") {
+        return {
+            redirect: {
+                destination: `/${step}`,
+                permanent: false,
+            }
+        }
+    }
+    return {
+        props: {}
+    }
+
 }
 
 export default ExtraInfo;

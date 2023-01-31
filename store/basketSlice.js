@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+let product;
+
 export const basketSlice = createSlice({
     name: "basket",
-    initialState: { selectedItems: [] },
+    initialState: { selectedItems: product },
     reducers: {
         addToBasket: (state, action) => {
-            state.selectedItems.push(action.payload);
+            state.selectedItems = (action.payload);
+        },
+        addSelectedItemToStorage: (state, action) => {
+            state.selectedItems = action.payload
         }
     }
 })
 
 
-export const { addToBasket } = basketSlice.actions;
+export const { addToBasket, addSelectedItemToStorage } = basketSlice.actions;
 export default basketSlice.reducer;

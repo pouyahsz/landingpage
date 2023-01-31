@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Head from 'next/head';
 import styles from './style.module.scss';
 import { COURSE_DUMMY_DATA } from '../../dummy-data';
 import Button from '../../components/common/Button';
@@ -7,14 +8,21 @@ import { useDispatch } from 'react-redux';
 import { addToBasket } from '../../store/basketSlice';
 
 const Product = (props) => {
+    const nextProgressbarStatus = "loging-info";
     const dispatch = useDispatch();
     const router = useRouter();
     function paymentHandler() {
-        dispatch(addToBasket(COURSE_DUMMY_DATA[0]))
-        router.push("loging-info");
+        dispatch(addToBasket(COURSE_DUMMY_DATA))
+        localStorage.setItem("product", JSON.stringify(COURSE_DUMMY_DATA));
+        document.cookie = `step=${nextProgressbarStatus}`;
+        router.push(`/${nextProgressbarStatus}`);
     }
     return (
         <div className={styles["product-section__container"]}>
+            <Head>
+                <title>{props.title}</title>
+                <meta name='description' content={props.description} />
+            </Head>
             <h1 className={styles["product-section__header"]}>
                 {props.title}
             </h1>
@@ -59,7 +67,7 @@ const Product = (props) => {
 
 export async function getStaticProps(context) {
     return {
-        props: COURSE_DUMMY_DATA[0]
+        props: COURSE_DUMMY_DATA
     }
 
 }

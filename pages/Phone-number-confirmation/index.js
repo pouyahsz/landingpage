@@ -4,8 +4,14 @@ import Button from '../../components/common/Button';
 import InputBox from '../../components/common/InputBox';
 import PurchasingSteps from '../../components/common/PurchasingSteps';
 import styles from './style.module.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import SetUserInformation from '../../components/common/setuserInformation';
+import { setStep } from '../../store/userSlice';
 function Verifying() {
+
+    const currentProgressbarStatus = "Phone-number-confirmation";
+    const nextProgressbarStatus = "complete-info";
+    const dispatch = useDispatch();
     const firstCharacter = useRef();
     const secondCharacter = useRef();
     const thirdCharacter = useRef();
@@ -135,7 +141,8 @@ function Verifying() {
     }
     function nextStepHandler() {
         if (firstCharacter.current.value && secondCharacter.current.value && thirdCharacter.current.value && forthCharacter.current.value && fifthCharacter.current.value && sixthCharacter.current.value) {
-            router.replace("/complete-info");
+            document.cookie = `step=${nextProgressbarStatus}`;
+            router.push(`/${nextProgressbarStatus}`);
         } else {
             setError(true);
         }
@@ -146,32 +153,50 @@ function Verifying() {
     }
 
     return (
-        <PurchasingSteps step={"Phone-number-confirmation"}>
-
-            <section className={styles["phone-number-section"]}>
-                <InputBox>
-                    <p className={styles["purchasing-processes__verifying-code"]}>کد تایید برای شماره موبایل <span>{user.phoneNumber}</span> ارسال شد
-                    </p>
-
-                    <div className={styles["purchasing-processes__verifying-inputs"]}>
-                        <label htmlFor="verifying" className={styles["purchasing-processes__label"]}>کد تایید را وارد کنید</label>
-                        <div className={styles["purchasing-processes__verifying-inputs-container"]}>
-                            <input type="number" id="verifying" ref={sixthCharacter} onInput={sixthCharacterHandler} onKeyUp={sixthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !sixthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                            <input type="number" id="verifying" ref={fifthCharacter} onInput={fifthCharacterHandler} onKeyUp={fifthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !fifthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                            <input type="number" id="verifying" ref={forthCharacter} onInput={forthCharacterHandler} onKeyUp={forthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !forthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                            <input type="number" id="verifying" ref={thirdCharacter} onInput={thirdCharacterHandler} onKeyUp={thirdCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !thirdCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                            <input type="number" id="verifying" ref={secondCharacter} onInput={secondCharacterHandler} onKeyUp={secondCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !secondCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
-                            <input type="number" id="verifying" ref={firstCharacter} onInput={firstCharacterHandler} onKeyUp={firstCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !firstCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+        <SetUserInformation>
+            <PurchasingSteps step={currentProgressbarStatus}>
+                <section className={styles["phone-number-section"]}>
+                    <InputBox>
+                        <p className={styles["purchasing-processes__verifying-code"]}>کد تایید برای شماره موبایل <span>{user.phoneNumber}</span> ارسال شد
+                        </p>
+                        <div className={styles["purchasing-processes__verifying-inputs"]}>
+                            <label htmlFor="verifying" className={styles["purchasing-processes__label"]}>کد تایید را وارد کنید</label>
+                            <div className={styles["purchasing-processes__verifying-inputs-container"]}>
+                                <input type="number" id="verifying" ref={sixthCharacter} onInput={sixthCharacterHandler} onKeyUp={sixthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !sixthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                                <input type="number" id="verifying" ref={fifthCharacter} onInput={fifthCharacterHandler} onKeyUp={fifthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !fifthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                                <input type="number" id="verifying" ref={forthCharacter} onInput={forthCharacterHandler} onKeyUp={forthCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !forthCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                                <input type="number" id="verifying" ref={thirdCharacter} onInput={thirdCharacterHandler} onKeyUp={thirdCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !thirdCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                                <input type="number" id="verifying" ref={secondCharacter} onInput={secondCharacterHandler} onKeyUp={secondCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !secondCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                                <input type="number" id="verifying" ref={firstCharacter} onInput={firstCharacterHandler} onKeyUp={firstCharacterKeyStrokeHandler} onClick={selectHandler} className={`${styles["purchasing-processes__verifying-input"]} ${error && !firstCharacter.current.value ? styles["purchasing-processes__error"] : ""}`} />
+                            </div>
                         </div>
-
-                    </div>
-                    <Button text="ورود به فرانت هوکس" onClick={nextStepHandler} />
-                </InputBox>
-            </section>
+                        <Button text="ورود به فرانت هوکس" onClick={nextStepHandler} />
+                    </InputBox>
+                </section>
 
 
-        </PurchasingSteps >
+            </PurchasingSteps >
+        </SetUserInformation>
+
     )
+}
+export async function getServerSideProps(context) {
+    const cookies = context.req.headers.cookie;
+    const step = cookies.slice(5);
+    if (step !== "Phone-number-confirmation") {
+        console.log("cookies")
+        return {
+            redirect: {
+                destination: `/${step}`,
+                permanent: false,
+            },
+            props: {}
+        }
+    }
+    return {
+        props: {}
+    }
+
 }
 
 export default Verifying;

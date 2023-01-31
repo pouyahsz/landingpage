@@ -1,10 +1,21 @@
 import styles from './style.module.scss';
-import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const Dashbord = () => {
-    const user = useSelector(state => state.user.userInfo);
-    const basket = useSelector(state => state.basket.selectedItems);
+    const [user, setUser] = useState({});
+    const [product, setProduct] = useState({});
+    useEffect(() => {
+        const temp = {}
+        setProduct(JSON.parse(localStorage.getItem("product")))
+        temp.userName = localStorage.getItem("name");
+        temp.userEmail = localStorage.getItem("email");
+        temp.phoneNumber = localStorage.getItem("phone-number");
+        temp.postalCode = localStorage.getItem("postal-code");
+        temp.nationalCode = localStorage.getItem("national-code");
+        setUser(temp)
+
+    }, [])
     return (
 
         <div className={styles["user-info"]}>
@@ -12,9 +23,6 @@ const Dashbord = () => {
                 <div className="user-info__greeting">
                     <p>سلام <span>{user.userName}</span> در لیست زیر میتونی اطلاعات مربوط به دوره هارو ببینی </p>
                 </div>
-                {/* <div className="user-info__telegram-chanel">
-                    <p>لینک دوره : <a href={basket[0].telegramChanel}>{basket[0].telegramChanel}</a></p>
-                </div> */}
                 <h3>دوره های ثبت نام شده</h3>
                 <div className={styles["user-info__list"]}>
                     <div className={styles["user-info__list-container"]}>
@@ -26,26 +34,22 @@ const Dashbord = () => {
                                 <h5>لینک کانال تلگرام دوره</h5>
                             </div>
                         </div>
-                        {basket.map((element) => {
-                            return (
-                                <div className={styles["user-info__courses"]} key={element.id}>
-                                    <div className={styles["user-info__courses-container"]}>
-                                        <div className={styles["user-info__course-image"]}>
-                                            <Image src={element.image} alt={element.title} width={100} height={70} />
-                                        </div>
-                                        <div className={styles["user-info__course-title"]}>
-                                            <p>{element.title}</p>
-                                        </div>
-                                        <div className={styles["user-info__course-price"]}>
-                                            <p>{element.price * (1 - element.discount / 100)}</p>
-                                        </div>
-                                        <div className={styles["user-info__course-telegram-chanel"]}>
-                                            <a href={element.telegramChanel}>{element.telegramChanel}</a>
-                                        </div>
-                                    </div>
+                        <div className={styles["user-info__courses"]} key={product.id}>
+                            <div className={styles["user-info__courses-container"]}>
+                                <div className={styles["user-info__course-image"]}>
+                                    <Image src={product.image} alt={product.title} width={100} height={70} />
                                 </div>
-                            )
-                        })}
+                                <div className={styles["user-info__course-title"]}>
+                                    <p>{product.title}</p>
+                                </div>
+                                <div className={styles["user-info__course-price"]}>
+                                    <p>{product.price * (1 - product.discount / 100)}</p>
+                                </div>
+                                <div className={styles["user-info__course-telegram-chanel"]}>
+                                    <a href={product.telegramChanel}>{product.telegramChanel}</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 

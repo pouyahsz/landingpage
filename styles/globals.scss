@@ -1,3 +1,4 @@
+@import "./color-variables";
 @font-face {
   font-family: "Peyda";
   src: url("../public/assets/PeydaWeb-Regular.woff") format("woff");
@@ -20,6 +21,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Peyda";
+  color: $text-color;
 }
 
 a {
@@ -29,14 +31,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }

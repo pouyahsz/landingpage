@@ -23,11 +23,6 @@ export default function OrderInfo() {
         setUser(temp);
 
     }, [])
-    useEffect(() => {
-        if (localStorage.getItem("step") !== currentProgressbarStatus) {
-            router.push(`/${localStorage.getItem("step")}`);
-        }
-    }, [router])
     const totalPrice = (product.price * (1 - product.discount / 100));
     function nextStepHandler() {
         document.cookie = `step=${nextProgressbarStatus}`

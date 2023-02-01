@@ -1,17 +1,17 @@
+@import "../../styles/color-variables";
 .purchasing-processes__input-box {
   width: 35%;
   max-width: 500px;
   border: 1px solid rgb(162, 162, 162);
   border-radius: 15px;
   padding: 20px;
-  // margin: auto;
   margin-top: 40px;
 }
 
 .purchasing-processes__title {
   width: fit-content;
   margin: auto;
-  color: #5a22c1;
+  color: $secondary-color;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 900px) {

@@ -1,5 +1,6 @@
+@import "../../styles/color-variables";
 .purchasing-processes__button {
-  background-color: #5a22c1;
+  background-color: $primary-color;
   cursor: pointer;
   color: white;
   border: none;

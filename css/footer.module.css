@@ -1,0 +1,27 @@
+.footer {
+  margin-top: 40px;
+  padding: 10px;
+  background-color: #ffc301;
+}
+
+.footer__social-medias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.footer__social-media-icon {
+  width: 30px;
+  margin: 0 8px;
+}
+
+.footer__copywrite {
+  text-align: center;
+}
+
+.footer__copywrite-text {
+  font-size: 0.9em;
+  margin: 0;
+}
+/*# sourceMappingURL=footer.module.css.map */

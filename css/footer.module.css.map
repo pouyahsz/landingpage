@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,OAAO,CAAC;EACN,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,OAAO;CAC1B;;AACD,AAAA,sBAAsB,CAAC;ECLrB,OAAO,EAAE,IAAI;EACb,eAAe,EDKD,MAAM;ECJpB,WAAW,EDIW,MAAM;ECH5B,cAAc,EDGgB,GAAG;CAClC;;AACD,AAAA,0BAA0B,CAAC;EACzB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;CACd;;AACD,AAAA,kBAAkB,CAAC;EACjB,UAAU,EAAE,MAAM;CACnB;;AACD,AAAA,uBAAuB,CAAC;EACtB,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,CAAC;CACV",
+    "sources": [
+        "../components/layout/footer/footer.module.scss",
+        "../styles/_mixins.scss"
+    ],
+    "names": [],
+    "file": "footer.module.css"
+}

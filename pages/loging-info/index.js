@@ -7,7 +7,7 @@ import TextInput from '../../components/common/TextInput';
 import styles from './style.module.scss';
 import { useDispatch } from 'react-redux';
 import { addPhoneNumber, clearUserInfo, setStep } from '../../store/userSlice';
-import SetUserInformation from '../../components/common/setuserInformation';
+import SetUserInformation from '../../components/common/SetuserInformation';
 
 function Authentication() {
     const currentProgressbarStatus = "loging-info";

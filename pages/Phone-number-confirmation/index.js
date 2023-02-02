@@ -5,8 +5,7 @@ import InputBox from '../../components/common/InputBox';
 import PurchasingSteps from '../../components/common/PurchasingSteps';
 import styles from './style.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import SetUserInformation from '../../components/common/setuserInformation';
-import { setStep } from '../../store/userSlice';
+import SetUserInformation from '../../components/common/SetuserInformation';
 function Verifying() {
 
     const currentProgressbarStatus = "Phone-number-confirmation";

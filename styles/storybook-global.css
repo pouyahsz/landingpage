@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Peyda";
+  src: url("../public/assets/PeydaWeb-Regular.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../public/assets/PeydaWeb-Medium.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../public/assets/PeydaWeb-Bold.woff") format("woff");
+  font-weight: 700;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  font-family: peyda;
+}
+a {
+  text-decoration: none;
+}

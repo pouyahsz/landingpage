@@ -3,7 +3,7 @@ import PurchasingSteps from '../../components/common/PurchasingSteps';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import SetUserInformation from '../../components/common/setuserInformation';
+import SetUserInformation from '../../components/common/SetuserInformation';
 
 export default function OrderInfo() {
     const currentProgressbarStatus = "order-receipt";

@@ -4,11 +4,12 @@
   border: 1px solid #c0bfbf;
   height: 35px;
   border-radius: 5px;
+  &:focus {
+    outline: 2px solid $secondary-color;
+    border: 0;
+  }
 }
-.purchasing-processes__input:focus {
-  outline: 2px solid $secondary-color;
-  border: 0;
-}
+
 .purchasing-processes__input::-webkit-outer-spin-button,
 .purchasing-processes__input::-webkit-inner-spin-button {
   -webkit-appearance: none;

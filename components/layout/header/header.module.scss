@@ -1,11 +1,5 @@
 @import "../../../styles/mixins";
-.header {
-  position: relative;
-  height: 60px;
-  width: 100%;
-}
-.wide-header {
-}
+
 #header__container {
   padding: 0 80px;
   @include flex(space-between, center, row);
@@ -30,63 +24,71 @@
   width: 30px;
   height: 30px;
 }
-.wide-header__logo-container {
-  width: 12%;
-}
-.wide-header__logo {
-  @extend #header__logo;
-}
-.wide-header__container {
-  @extend #header__container;
-}
-.wide-header__navigation-bar {
-  width: 74%;
+.header {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  .wide-header__logo-container {
+    width: 12%;
+    .wide-header__logo {
+      @extend #header__logo;
+    }
+  }
+  .wide-header__container {
+    @extend #header__container;
+  }
+  .wide-header__navigation-bar {
+    width: 74%;
+  }
+
+  .wide-header__list {
+    @extend #header__list;
+    .wide-header__list-items {
+      @extend #header__list-items;
+    }
+  }
+
+  .wide-header__user-account {
+    @extend #header__user-account;
+    .wide-header__user-account-logo {
+      @extend #header__user-account-logo;
+    }
+  }
+  .narrow-header {
+    display: none;
+    .narrow-header__container {
+      @extend #header__container;
+      padding: 0 40px;
+    }
+  }
+
+  .narrow-header__logo-container {
+    width: 40%;
+    text-align: center;
+    .narrow-header__logo {
+      @extend #header__logo;
+    }
+  }
+
+  .narrow-header__user-account {
+    @extend #header__user-account;
+    width: 30%;
+  }
+  .narrow-header__user-account-logo {
+    @extend #header__user-account-logo;
+  }
+  .narrow-header__navigation-bar {
+    width: 30%;
+    .narrow-header__bars-button {
+      all: unset;
+      .narrow-header__bars {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
 }
 
-.wide-header__list {
-  @extend #header__list;
-}
-.wide-header__list-items {
-  @extend #header__list-items;
-}
-
-.wide-header__user-account {
-  @extend #header__user-account;
-}
-.wide-header__user-account-logo {
-  @extend #header__user-account-logo;
-}
-.narrow-header {
-  display: none;
-}
-.narrow-header__container {
-  @extend #header__container;
-  padding: 0 40px;
-}
-.narrow-header__logo-container {
-  width: 40%;
-  text-align: center;
-}
-.narrow-header__logo {
-  @extend #header__logo;
-}
-.narrow-header__user-account {
-  @extend #header__user-account;
-  width: 30%;
-}
-.narrow-header__user-account-logo {
-  @extend #header__user-account-logo;
-}
-.narrow-header__navigation-bar {
-  width: 30%;
-}
-.narrow-header__bars-button {
-  all: unset;
-}
-.narrow-header__bars {
-  width: 40px;
-  height: 40px;
-}
 .narrow-header_navigation-container {
   position: absolute;
   background-color: white;
@@ -98,6 +100,7 @@
   overflow-x: hidden;
   width: 0;
   transition: 0.5s;
+
   .narrow-header_navigation-bar {
     height: 100%;
     .narrow-header__list {
@@ -122,20 +125,24 @@
 }
 
 @media screen and (max-width: 750px) {
-  .wide-header__container {
-    padding: 0 60px;
-    @include flex(space-between, center, row);
+  .header {
+    .wide-header__container {
+      padding: 0 60px;
+      @include flex(space-between, center, row);
+    }
   }
   .wide-header__list-items {
     margin-left: 25px;
     font-size: 0.9em;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 670px) {
   .wide-header {
     display: none;
   }
-  .narrow-header {
-    display: block;
+  .header {
+    .narrow-header {
+      display: block;
+    }
   }
 }

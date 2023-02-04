@@ -1,32 +1,33 @@
 @import "../../styles/mixins";
 .user-info__container {
   padding: 20px 80px;
+  .user-info__list {
+    overflow-x: auto;
+    .user-info__list-container {
+      min-width: 1000px;
+      .user-info__courses {
+        border: 1px solid rgba(204, 204, 204, 0.753);
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: 100%;
+        .user-info__courses-container {
+          @include flex(space-between, center, row);
+          > div {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
 }
-.user-info__courses {
-  border: 1px solid rgba(204, 204, 204, 0.753);
-  padding: 10px 20px;
-  border-radius: 10px;
-  width: 100%;
-}
-.user-info__list {
-  overflow-x: auto;
-}
-.user-info__courses-container {
-  @include flex(space-between, center, row);
-}
-.user-info__courses-container > div {
-  width: 25%;
-}
-.user-info__list-container {
-  min-width: 1000px;
-}
+
 .user-info__list-header-container {
   @include flex(space-between, center, row);
-}
-.user-info__list-header-container > h5 {
-  width: 25%;
-}
-.user-info__list-header-container > div {
-  width: 25%;
-  height: 20px;
+  > h5 {
+    width: 25%;
+  }
+  > div {
+    width: 25%;
+    height: 20px;
+  }
 }

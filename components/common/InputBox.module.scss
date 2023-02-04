@@ -6,14 +6,14 @@
   border-radius: 15px;
   padding: 20px;
   margin-top: 40px;
+  .purchasing-processes__title {
+    width: fit-content;
+    margin: auto;
+    color: $secondary-color;
+    margin-bottom: 20px;
+  }
 }
 
-.purchasing-processes__title {
-  width: fit-content;
-  margin: auto;
-  color: $secondary-color;
-  margin-bottom: 20px;
-}
 @media screen and (max-width: 900px) {
   .purchasing-processes__input-box {
     width: 42%;

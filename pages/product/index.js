@@ -6,11 +6,13 @@ import Button from '../../components/common/Button';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../../store/basketSlice';
+import useTranslation from 'next-translate/useTranslation'
 
 const Product = (props) => {
     const nextProgressbarStatus = "loging-info";
     const dispatch = useDispatch();
     const router = useRouter();
+    const { t: text } = useTranslation();
     function paymentHandler() {
         dispatch(addToBasket(COURSE_DUMMY_DATA))
         localStorage.setItem("product", JSON.stringify(COURSE_DUMMY_DATA));
@@ -24,7 +26,7 @@ const Product = (props) => {
                 <meta name='description' content={props.description} />
             </Head>
             <h1 className={styles["product-section__header"]}>
-                {props.title}
+                {text("common:title")}
             </h1>
             <div className={styles["product-section__content"]}>
                 <div className={styles["product-section__info"]}>
@@ -58,6 +60,7 @@ const Product = (props) => {
                         <span className={styles["product-section__students-amount"]}>{props.students}</span>
                     </div>
                     <Button text="پرداخت" onClick={paymentHandler} />
+
                 </div>
             </div>
 

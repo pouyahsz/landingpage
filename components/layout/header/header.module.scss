@@ -49,6 +49,10 @@
   }
 
   .wide-header__user-account {
+    > a {
+      margin: 0 10px;
+      display: inline-block;
+    }
     @extend #header__user-account;
     .wide-header__user-account-logo {
       @extend #header__user-account-logo;

@@ -1,9 +1,11 @@
 import styles from './header.module.scss';
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 const Header = () => {
-    const [menuStatus, setMenuStatus] = useState(false)
+    const [menuStatus, setMenuStatus] = useState(false);
+    const router = useRouter();
     function openMenuHandler() {
         setMenuStatus((prevState) => !prevState);
     }
@@ -21,9 +23,13 @@ const Header = () => {
                             <Link href="#"><li className={styles["wide-header__list-items"]}>محصولات</li></Link>
                             <Link href="#"><li className={styles["wide-header__list-items"]}>درباره ما</li></Link>
                             <Link href="#"><li className={styles["wide-header__list-items"]}>تماس با ما</li></Link>
+
                         </ul>
                     </nav>
                     <div className={styles["wide-header__user-account"]}>
+                        {router.locales.map((locale) => { return <Link href={router.asPath} locale={locale} key={locale}>{locale}</Link> }
+
+                        )}
                         <Image src="/assets/images/user.svg" alt="user logo" height="90" width="90" className={styles["wide-header__user-account-logo"]} />
                     </div>
                 </div>
@@ -40,10 +46,10 @@ const Header = () => {
                             <div className={menuStatus ? `${styles["narrow-header_navigation-container"]} ${styles["narrow-header_navigation-container--open"]}` : `${styles["narrow-header_navigation-container"]} ${styles["narrow-header_navigation-container--close"]}`}>
                                 <nav className={styles["narrow-header_navigation-bar"]}>
                                     <ul className={styles["narrow-header__list"]}>
-                                        <Link href="#"><li className={styles["narrow-header__list-items"]}>صفحه نخست</li></Link>
-                                        <Link href="#"><li className={styles["narrow-header__list-items"]}>محصولات</li></Link>
-                                        <Link href="#"><li className={styles["narrow-header__list-items"]}>درباره ما</li></Link>
-                                        <Link href="#"><li className={styles["narrow-header__list-items"]}>تماس با ما</li></Link>
+                                        <li className={styles["narrow-header__list-items"]}><Link href="#">صفحه نخست</Link></li>
+                                        <li className={styles["narrow-header__list-items"]}><Link href="#">محصولات</Link></li>
+                                        <li className={styles["narrow-header__list-items"]}><Link href="#">درباره ما</Link></li>
+                                        <li className={styles["narrow-header__list-items"]}><Link href="#">تماس با ما</Link></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -56,6 +62,7 @@ const Header = () => {
                     <div className={styles["narrow-header__user-account"]}>
                         <Image src="/assets/images/user.svg" alt="user logo" height="90" width="90" className={styles["narrow-header__user-account-logo"]} />
                     </div>
+
                 </div>
             </div>
 

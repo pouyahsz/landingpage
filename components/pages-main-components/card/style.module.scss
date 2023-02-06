@@ -1,0 +1,40 @@
+@import "../../../styles/color-variables";
+
+.blog-card {
+  width: 32%;
+  border: 1px solid #efefef;
+  border-radius: 13px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 0 5px -7px 5px #00000080;
+  }
+  .blog-card__container {
+    .blog-card__image-content {
+      width: 100%;
+    }
+    .blog-card__header {
+      padding: 0 15px;
+      .blog-card__category_content {
+        background-color: $primary-color;
+        color: white;
+        padding: 3px 0;
+        width: 50px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 6px;
+      }
+      .blog-card__title-content {
+        margin-top: 8px;
+        color: $secondary-color;
+      }
+    }
+    .blog-card__body {
+      padding: 0 15px 15px;
+      .blog-card__paragraph-content {
+        text-align: justify;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 @import "../../styles/mixins";
 @import "../../styles/color-variables";
 .product-section__container {
+  padding: 0 80px;
 }
 .product-section__content {
   @include flex(space-between, flex-start, row);
@@ -44,6 +45,9 @@
   @extend #pricing-items;
 }
 @media screen and (max-width: 950px) {
+  .product-section__container {
+    padding: 0 40px;
+  }
   .product-section__info {
     width: 60%;
   }
@@ -66,6 +70,9 @@
   }
 }
 @media screen and (max-width: 550px) {
+  .product-section__container {
+    padding: 0 20px;
+  }
   .product-section__content {
     @include flex(center, center, column);
   }

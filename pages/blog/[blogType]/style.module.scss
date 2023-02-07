@@ -1,0 +1,94 @@
+@import "../../../styles/mixins";
+@import "../../../styles/color-variables";
+.blog {
+  .blog__container {
+    .blog__title-section {
+      text-align: center;
+      background-color: $secondary-color;
+      color: white;
+      height: 240px;
+      @include flex(center, center, column);
+      .blog__title {
+        margin: 0 0 5px;
+      }
+      .blog__description {
+        width: 70%;
+        margin: auto;
+        margin: 5px 0 0;
+        display: inline-block;
+      }
+    }
+    .blog__categories-container {
+      overflow-x: auto;
+      width: 600px;
+      margin: auto;
+      background-color: white;
+      border-radius: 12px;
+      padding: 5px 15px;
+      transform: translateY(-50%);
+      box-shadow: 0 2px 6px -4px rgba(0, 0, 0, 0.5);
+      .blog__categories {
+        padding: 0;
+        list-style-type: none;
+        min-width: 570px;
+        @include flex(space-between, center, row);
+        .blog__categorie {
+          width: 16%;
+          text-align: center;
+        }
+        .blog__categorie-button {
+          text-align: center;
+          all: unset;
+          cursor: pointer;
+          display: inline-block;
+          width: 100%;
+          padding: 5px 0;
+          border-radius: 6px;
+        }
+        .blog__categorie-button--active {
+          background-color: $secondary-color;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+    .blog__cards {
+      padding: 0 80px;
+      @include flex(space-between, center, row);
+      flex-wrap: wrap;
+    }
+  }
+}
+@media screen and (max-width: 950px) {
+  .blog {
+    .blog__container {
+      .blog__cards {
+        padding: 0 40px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .blog {
+    .blog__container {
+      .blog__title-section {
+        height: 190px;
+      }
+      .blog__categories-container {
+        width: 100%;
+        border-radius: 0;
+        transform: translateY(0);
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .blog {
+    .blog__container {
+      .blog__cards {
+        padding: 0 20px;
+      }
+    }
+  }
+}

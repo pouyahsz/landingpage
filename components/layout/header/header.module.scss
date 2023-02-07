@@ -1,4 +1,5 @@
 @import "../../../styles/mixins";
+@import "../../../styles/color-variables";
 
 #header__container {
   padding: 0 80px;
@@ -14,7 +15,7 @@
 }
 #header__list-items {
   margin-left: 35px;
-  color: rgba(0, 0, 0, 0.63);
+  color: $mute-color;
 }
 #header__user-account {
   width: 12%;
@@ -127,11 +128,16 @@
 .narrow-header_navigation-container--open {
   width: 100%;
 }
-
+@media screen and (max-width: 950px) {
+  .header {
+    .wide-header__container {
+      padding: 0 40px;
+    }
+  }
+}
 @media screen and (max-width: 750px) {
   .header {
     .wide-header__container {
-      padding: 0 60px;
       @include flex(space-between, center, row);
     }
   }
@@ -140,13 +146,20 @@
     font-size: 0.9em;
   }
 }
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 640px) {
   .wide-header {
     display: none;
   }
   .header {
     .narrow-header {
       display: block;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .header {
+    .wide-header__container {
+      padding: 0 20px;
     }
   }
 }

@@ -3,14 +3,12 @@
   min-height: 600px;
   @include flex(space-between, center, column);
   .layout__children-container {
-    padding: 0 80px;
     width: 100%;
   }
 }
 @media screen and (max-width: 950px) {
   .layout {
     .product-section__container {
-      padding: 0 40px;
     }
   }
 }

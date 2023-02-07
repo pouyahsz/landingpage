@@ -1,29 +1,37 @@
 @import "../../../styles/color-variables";
+@import "../../../styles/mixins";
 
 .blog-card {
   width: 32%;
   border: 1px solid #efefef;
   border-radius: 13px;
   overflow: hidden;
+  margin-bottom: 15px;
   cursor: pointer;
   transition: all 0.5s;
   &:hover {
-    box-shadow: 0 5px -7px 5px #00000080;
+    box-shadow: 0 5px 7px -5px #00000080;
+    transform: translate(0, -10px);
   }
   .blog-card__container {
     .blog-card__image-content {
       width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 4 / 2.5;
     }
     .blog-card__header {
       padding: 0 15px;
       .blog-card__category_content {
-        background-color: $primary-color;
-        color: white;
+        margin: 0;
         padding: 3px 0;
         width: 50px;
         text-align: center;
         display: inline-block;
         border-radius: 6px;
+        span {
+          color: #4040c1;
+        }
       }
       .blog-card__title-content {
         margin-top: 8px;
@@ -36,5 +44,30 @@
         text-align: justify;
       }
     }
+    .blog-card__footer {
+      padding: 0 15px 15px;
+      .blog-card__reading-duration {
+        @include flex(flex-end, center, row);
+        .blog-card__reading-duration-content {
+          font-size: 0.9em;
+          margin-top: 3px;
+          color: $mute-color;
+        }
+        .blog-card__reading-duration-icon {
+          margin-right: 6px;
+          fill: $mute-color;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 950px) {
+  .blog-card {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .blog-card {
+    width: 100%;
   }
 }

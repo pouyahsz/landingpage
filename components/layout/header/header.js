@@ -27,9 +27,9 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className={styles["wide-header__user-account"]}>
-                        {router.locales.map((locale) => { return <Link href={router.asPath} locale={locale} key={locale}>{locale}</Link> }
+                        {/* {router.locales.map((locale) => { return <Link href={router.asPath} locale={locale} key={locale}>{locale}</Link> }
 
-                        )}
+                        )} */}
                         <Image src="/assets/images/user.svg" alt="user logo" height="90" width="90" className={styles["wide-header__user-account-logo"]} />
                     </div>
                 </div>

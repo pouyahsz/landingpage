@@ -1,15 +1,17 @@
-import styles from './style.module.scss';
-import React from 'react';
-import BlogCard from '../../components/pages-main-components/card';
+import React from 'react'
+
 const Blog = () => {
     return (
-        <div className={styles["blog"]}>
-            <div className={styles["blog__container"]}>
-                <BlogCard />
-                <BlogCard />
-                <BlogCard />
-            </div>
-        </div>
+        <>
+
+        </>
     )
 }
+
+export async function getStaticProps(context) {
+    return {
+        redirect: { destination: "/blog/all" }
+    }
+}
+
 export default Blog;
